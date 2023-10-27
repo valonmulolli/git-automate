@@ -1,16 +1,14 @@
-use std::process::{Command, exit};
 use names::Generator;
+use std::process::{exit, Command};
 
-
-fn update_commit_push(){
-
+fn update_commit_push() {
     let add_command = Command::new("git")
         .arg("add")
         .arg("-A")
         .output()
         .expect("Failed to execute git add command");
 
-    if !add_command.status.success(){
+    if !add_command.status.success() {
         eprintln!("Error: Failed to add files to the git repo.");
         exit(1)
     }
@@ -22,7 +20,7 @@ fn update_commit_push(){
         .output()
         .expect("Failed to execute git commit command");
 
-    if !commit_command.status.success(){
+    if !commit_command.status.success() {
         eprintln!("Error: Failed to commit changes.");
         exit(1);
     }
@@ -34,15 +32,14 @@ fn update_commit_push(){
         .output()
         .expect("Failed to execute git push command");
 
-    if !push_command.status.success(){
+    if !push_command.status.success() {
         eprintln!("Error: Failed to push changes.");
         exit(1);
     }
-    println!("Sucessfuly added, comitted, and pushed all changes!")
-
+    println!("Successfully added, committed, and pushed all changes!")
 }
 
-fn name_generator() -> String{
+fn name_generator() -> String {
     let mut generator = Generator::default();
     generator.next().unwrap()
 }
