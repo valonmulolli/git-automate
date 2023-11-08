@@ -57,7 +57,3 @@ cargo install --path .
 - `names`: This dependency is used to generate random commit messages. You can find more information about this crate [here](https://crates.io/crates/names).
 
 - `std::os`: This module is part of the Rust standard library and is used for interacting with the operating system. It is used in this project for handling process exit codes.
-
-## License
-
-This project is released under the MIT License - see the [LICENSE](LICENSE) file for details.
